@@ -1,11 +1,12 @@
 sybil <- NULL
 sitk <- NULL
 
-.onLoad <- function(libname, pkgname) {
+.onLoad <- function(...) {
   Sys.setenv(RETICULATE_PYTHON = "managed")
   reticulate::py_require(
     packages = c(
       "scikit-learn==1.0.2",
+      "scipy==1.13",
       "lifelines==0.26.4",
       "sybil@git+https://github.com/reginabarzilaygroup/Sybil.git"
     ),
@@ -14,6 +15,10 @@ sitk <- NULL
   sybil <<- reticulate::import("sybil", delay_load = TRUE)
   sitk <<- reticulate::import("SimpleITK", delay_load = TRUE)
   S7::S7_on_load()
+}
+
+.onUnload <- function(...) {
+  S7::S7_on_unload()
 }
 
 S7::S7_on_build()
