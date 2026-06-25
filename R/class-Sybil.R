@@ -79,50 +79,55 @@ Sybil <- S7::new_class(
 
 #' @rdname Sybil
 #' @export
-load_model <- function(name_or_path, cache, calibrator_path, device) {
+load_model <- function(
+  name_or_path,
+  cache = "~/.sybil/",
+  calibrator_path = character(),
+  device = character()
+) {
   Sybil(name_or_path, cache, calibrator_path, device)
 }
 
 #' @rdname Sybil
 #' @export
-Sybil_base <- function(cache = NULL, device = NULL) {
-  Sybil("sybil_base", cache = cache, device = device)
+Sybil_base <- function(cache = "~/.sybil/", device = character()) {
+  load_model("sybil_base", cache, device)
 }
 
 #' @rdname Sybil
 #' @export
-Sybil_1 <- function(cache = NULL, device = NULL) {
-  Sybil("sybil_1", cache = cache, device = device)
+Sybil_1 <- function(cache = "~/.sybil/", device = character()) {
+  load_model("sybil_1", cache, device)
 }
 
 #' @rdname Sybil
 #' @export
-Sybil_2 <- function(cache = NULL, device = NULL) {
-  Sybil("sybil_2", cache = cache, device = device)
+Sybil_2 <- function(cache = "~/.sybil/", device = character()) {
+  load_model("sybil_2", cache, device)
 }
 
 #' @rdname Sybil
 #' @export
-Sybil_3 <- function(cache = NULL, device = NULL) {
-  Sybil("sybil_3", cache = cache, device = device)
+Sybil_3 <- function(cache = "~/.sybil/", device = character()) {
+  load_model("sybil_3", cache, device)
 }
 
 #' @rdname Sybil
 #' @export
-Sybil_4 <- function(cache = NULL, device = NULL) {
-  Sybil("sybil_4", cache = cache, device = device)
+Sybil_4 <- function(cache = "~/.sybil/", device = character()) {
+  load_model("sybil_4", cache, device)
 }
 
 #' @rdname Sybil
 #' @export
-Sybil_5 <- function(cache = NULL, device = NULL) {
-  Sybil("sybil_5", cache = cache, device = device)
+Sybil_5 <- function(cache = "~/.sybil/", device = character()) {
+  load_model("sybil_5", cache, device)
 }
 
 #' @rdname Sybil
 #' @export
-Sybil_ensemble <- function(cache = NULL, device = NULL) {
-  Sybil("sybil_ensemble", cache = cache, device = device)
+Sybil_ensemble <- function(cache = "~/.sybil/", device = character()) {
+  load_model("sybil_ensemble", cache, device)
 }
 
 method(print, Sybil) <- function(x) {

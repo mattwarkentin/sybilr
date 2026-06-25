@@ -19,21 +19,26 @@ Sybil(
   device = character(0)
 )
 
-load_model(name_or_path, cache, calibrator_path, device)
+load_model(
+  name_or_path,
+  cache = "~/.sybil/",
+  calibrator_path = character(),
+  device = character()
+)
 
-Sybil_base(cache = NULL, device = NULL)
+Sybil_base(cache = "~/.sybil/", device = character())
 
-Sybil_1(cache = NULL, device = NULL)
+Sybil_1(cache = "~/.sybil/", device = character())
 
-Sybil_2(cache = NULL, device = NULL)
+Sybil_2(cache = "~/.sybil/", device = character())
 
-Sybil_3(cache = NULL, device = NULL)
+Sybil_3(cache = "~/.sybil/", device = character())
 
-Sybil_4(cache = NULL, device = NULL)
+Sybil_4(cache = "~/.sybil/", device = character())
 
-Sybil_5(cache = NULL, device = NULL)
+Sybil_5(cache = "~/.sybil/", device = character())
 
-Sybil_ensemble(cache = NULL, device = NULL)
+Sybil_ensemble(cache = "~/.sybil/", device = character())
 }
 \arguments{
 \item{name_or_path}{Alias to a provided pretrained Sybil model or path
