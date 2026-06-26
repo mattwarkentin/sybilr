@@ -1,16 +1,18 @@
-#' Predict a Series using Sybil
+#' Predict Series using Sybil
 #'
-#' For a list of `Series`, predict...
+#' For a series or list of series, estimate lung cancer risk at 1 to 6 years
+#'   and optionally attentions maps.
 #'
-#' @param object An object with class `"Sybil"`.
-#' @param series An object with class `"Series"`.
+#' @param object An `S7` object with class `"Sybil"`.
+#' @param series An `S7` object with class `"Series"`.
 #' @param return_attentions Logical. Whether to return attentions?
 #'   Default is `FALSE`.
 #' @param threads Number of CPU threads to use for PyTorch inference. Default
 #'   is `0L`.
+#' @param ... Not currently used.
 #'
-#' @return An `S7` object with properties `@scores`, and `@attentions`, if
-#'   `return_attentions` was `TRUE`.
+#' @return An `S7` object with properties `@scores`, and `@attentions`.
+#'   `@attentions` will be an empty list unless `return_attentions` was `TRUE`.
 #'
 #' @name predict.Sybil
 #' @rdname predict.Sybil

@@ -2,22 +2,25 @@
 % Please edit documentation in R/predict.R
 \name{predict.Sybil}
 \alias{predict.Sybil}
-\title{Predict a Series using Sybil}
+\title{Predict Series using Sybil}
 \arguments{
-\item{object}{An object with class \code{"Sybil"}.}
+\item{object}{An \code{S7} object with class \code{"Sybil"}.}
 
-\item{series}{An object with class \code{"Series"}.}
+\item{series}{An \code{S7} object with class \code{"Series"}.}
 
 \item{return_attentions}{Logical. Whether to return attentions?
 Default is \code{FALSE}.}
 
 \item{threads}{Number of CPU threads to use for PyTorch inference. Default
 is \code{0L}.}
+
+\item{...}{Not currently used.}
 }
 \value{
-An \code{S7} object with properties \verb{@scores}, and \verb{@attentions}, if
-\code{return_attentions} was \code{TRUE}.
+An \code{S7} object with properties \verb{@scores}, and \verb{@attentions}.
+\verb{@attentions} will be an empty list unless \code{return_attentions} was \code{TRUE}.
 }
 \description{
-For a list of \code{Series}, predict...
+For a series or list of series, estimate lung cancer risk at 1 to 6 years
+and optionally attentions maps.
 }

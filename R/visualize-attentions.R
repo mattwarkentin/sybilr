@@ -1,9 +1,14 @@
-#' Visualizae Attentions Maps
+#' Visualize Attentions Maps
+#'
+#' Visualize attention map from a Sybil model for an input series. If `dir` is
+#'   set, this function will write a GIF to disk for each series. The GIF is
+#'   the input series with the attention maps superimposed to show which images
+#'   are having the largest impact on the lung cancer risk prediction.
 #'
 #' @param series List of `Series`.
 #' @param attentions List of attentions.
 #' @param dir Directory to save GIFs.
-#' @param gain Gain. Default is 3.
+#' @param gain Gain. Default is `3`.
 #'
 #' @return Images with attentions overlaid on the original series if `dir` is
 #'   not set, otherwise returns `dir`, invisibly.

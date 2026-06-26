@@ -3,7 +3,7 @@
 \name{Series}
 \alias{Series}
 \alias{has_label}
-\title{Create a Series}
+\title{Load a Series}
 \usage{
 Series(
   dicoms = character(0),
@@ -23,7 +23,7 @@ has_label(x)
 with the input CT as (row spacing, col spacing, slice thickness).}
 
 \item{label}{Optional. Label for whether the individual has or ever developed
-lung cancer (0=No, 1=Yes).}
+lung cancer (\code{0}=No, \code{1}=Yes).}
 
 \item{censor_time}{Optional. Number of years until the lung cancer diagnosis.
 If less than 1 year, set to \code{0}. Must be present if \code{label} is provided.}
@@ -40,5 +40,5 @@ If less than 1 year, set to \code{0}. Must be present if \code{label} is provide
 An \code{S7} object of class \code{"Series"}.
 }
 \description{
-Initialize a Series to estimate lung cancer risk.
+Load a CT series to estimate lung cancer risk.
 }

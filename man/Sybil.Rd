@@ -10,7 +10,7 @@
 \alias{Sybil_4}
 \alias{Sybil_5}
 \alias{Sybil_ensemble}
-\title{Create a Sybil model object.}
+\title{Load a Sybil Model}
 \usage{
 Sybil(
   name_or_path = "sybil_ensemble",
@@ -56,13 +56,17 @@ with the chosen model.}
 default, uses GPU with the most free memory, if available.}
 }
 \value{
-An \code{S7} object of class \code{"Sybil"}.
+An \code{S7} object of class \code{"Sybil"} with properties \verb{@name_or_path},
+\verb{@cache}, \verb{@calibrator_path}, \verb{@device}, and \verb{@model}. \verb{@model} provides
+access to the Python Sybil model object. This is a dynamic property and
+will load a model each time the property is accessed in case model
+properties change.
 }
 \description{
 Load a Sybil model to estimate lung cancer risk at 1 to 6 years. The Sybil
-model weights will be downloaded to disk on first use (to \code{cache}). More
-information about the Sybil model can be found here:
-\url{https://doi.org/10.1200/jco.22.01345}.
+model weights will be downloaded to disk on first use (to \code{cache}) and may
+take several minutes. More information about the Sybil model can be found
+in Mikhael et al. (2023) \url{doi:10.1200/jco.22.01345}.
 }
 \examples{
 model <- Sybil()

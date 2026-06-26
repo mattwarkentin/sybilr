@@ -1,9 +1,9 @@
-#' Create a Sybil model object.
+#' Load a Sybil Model
 #'
 #' Load a Sybil model to estimate lung cancer risk at 1 to 6 years. The Sybil
-#'   model weights will be downloaded to disk on first use (to `cache`). More
-#'   information about the Sybil model can be found here:
-#'   <https://doi.org/10.1200/jco.22.01345>.
+#'   model weights will be downloaded to disk on first use (to `cache`) and may
+#'   take several minutes. More information about the Sybil model can be found
+#'   in Mikhael et al. (2023) <doi:10.1200/jco.22.01345>.
 #'
 #' @param name_or_path Alias to a provided pretrained Sybil model or path
 #'   to a Sybil checkpoint. Names must be one of `"sybil_base"`, `"sybil_1"`,
@@ -18,7 +18,11 @@
 #'
 #' @import S7
 #'
-#' @return An `S7` object of class `"Sybil"`.
+#' @return An `S7` object of class `"Sybil"` with properties `@name_or_path`,
+#'   `@cache`, `@calibrator_path`, `@device`, and `@model`. `@model` provides
+#'   access to the Python Sybil model object. This is a dynamic property and
+#'   will load a model each time the property is accessed in case model
+#'   properties change.
 #'
 #' @examples
 #' model <- Sybil()

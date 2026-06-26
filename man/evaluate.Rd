@@ -2,7 +2,7 @@
 % Please edit documentation in R/evaluate.R
 \name{evaluate}
 \alias{evaluate}
-\title{Evaluate a Series using Sybil}
+\title{Evaluate Series using Sybil}
 \usage{
 evaluate(object, series, return_attentions = FALSE, ...)
 }
@@ -21,8 +21,8 @@ An \code{S7} object with properties \verb{@auc}, \verb{@c_index}, \verb{@scores}
 \verb{@attentions}, if \code{return_attentions} was \code{TRUE}.
 }
 \description{
-For a list of labelled \code{Series}, estimate lung cancer risk predictions (and
-optionally attentions), and also the C-index and time-dependent area
+For a list of labelled series, estimate lung cancer risk predictions (and
+optionally attentions) and the C-index and time-dependent area
 under the receiver operating characteristic curve (AUC) model performance
 metrics.
 }

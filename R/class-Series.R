@@ -1,12 +1,12 @@
-#' Create a Series
+#' Load a Series
 #'
-#' Initialize a Series to estimate lung cancer risk.
+#' Load a CT series to estimate lung cancer risk.
 #'
 #' @param dicoms Character vector of DICOM files.
 #' @param voxel_spacing Optional. Numeric vector of voxel spacings associated
 #'   with the input CT as (row spacing, col spacing, slice thickness).
 #' @param label Optional. Label for whether the individual has or ever developed
-#'   lung cancer (0=No, 1=Yes).
+#'   lung cancer (`0`=No, `1`=Yes).
 #' @param censor_time Optional. Number of years until the lung cancer diagnosis.
 #'   If less than 1 year, set to `0`. Must be present if `label` is provided.
 #' @param file_type Optional. File type of CT slices. One of `"png"` or

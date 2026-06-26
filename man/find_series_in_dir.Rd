@@ -3,24 +3,24 @@
 \name{find_series_in_dir}
 \alias{find_series_in_dir}
 \alias{find_dicoms_in_series}
-\title{Find or Select a DICOM Series}
+\title{Find a DICOM Series}
 \usage{
 find_series_in_dir(path)
 
 find_dicoms_in_series(path, series)
 }
 \arguments{
-\item{path}{Path to folder of DICOM files.}
+\item{path}{Path to a folder of DICOM files.}
 
 \item{series}{SeriesInstanceUID for a series of interest.}
 }
 \value{
 For \code{find_series_in_dir()}, a character vector of DICOM
 SeriesInstanceUIDs. For \code{find_dicoms_in_series()}, a character vector of
-DICOM file belonging to \code{series}.
+DICOM files belonging to the \code{series}.
 }
 \description{
-Given a path to a directory of DICOM files on disk, either find the
+Given a \code{path} to a directory of DICOM files on disk, either find the set of
 SeriesInstanceUIDs in the directory (\code{find_series_in_dir()}) or find the
 DICOM files belonging to a specific series (\code{find_dicoms_in_series()}) in
 the directory.

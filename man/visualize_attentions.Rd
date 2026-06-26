@@ -2,7 +2,7 @@
 % Please edit documentation in R/visualize-attentions.R
 \name{visualize_attentions}
 \alias{visualize_attentions}
-\title{Visualizae Attentions Maps}
+\title{Visualize Attentions Maps}
 \usage{
 visualize_attentions(series, attentions, dir = NULL, gain = 3)
 }
@@ -13,12 +13,15 @@ visualize_attentions(series, attentions, dir = NULL, gain = 3)
 
 \item{dir}{Directory to save GIFs.}
 
-\item{gain}{Gain. Default is 3.}
+\item{gain}{Gain. Default is \code{3}.}
 }
 \value{
 Images with attentions overlaid on the original series if \code{dir} is
 not set, otherwise returns \code{dir}, invisibly.
 }
 \description{
-Visualizae Attentions Maps
+Visualize attention map from a Sybil model for an input series. If \code{dir} is
+set, this function will write a GIF to disk for each series. The GIF is
+the input series with the attention maps superimposed to show which images
+are having the largest impact on the lung cancer risk prediction.
 }

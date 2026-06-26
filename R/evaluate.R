@@ -1,7 +1,7 @@
-#' Evaluate a Series using Sybil
+#' Evaluate Series using Sybil
 #'
-#' For a list of labelled `Series`, estimate lung cancer risk predictions (and
-#'   optionally attentions), and also the C-index and time-dependent area
+#' For a list of labelled series, estimate lung cancer risk predictions (and
+#'   optionally attentions) and the C-index and time-dependent area
 #'   under the receiver operating characteristic curve (AUC) model performance
 #'   metrics.
 #'
