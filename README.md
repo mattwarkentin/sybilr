@@ -1,19 +1,19 @@
 
-# sybil
+# sybilr
 
 <!-- badges: start -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/mattwarkentin/sybil/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mattwarkentin/sybil/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/mattwarkentin/sybilr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mattwarkentin/sybilr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of `sybil` is to provide an R interface to the Sybil lung
+The goal of `sybilr` is to provide an R interface to the Sybil lung
 cancer risk prediction model. Sybil is a deep learning model to predict
 future risk of lung cancer using low-dose computed tomography (LDCT)
 images. The publication for Sybil can be found
-[here](https://ascopubs.org/doi/10.1200/JCO.22.01345). This package is a
-wrapper around the Python implementation of
+[here](https://doi.org/10.1200/JCO.22.01345). This package is a wrapper
+around the Python implementation of
 [Sybil](https://github.com/reginabarzilaygroup/Sybil).
 
 This package is make possible by
@@ -25,12 +25,12 @@ Python dependencies into an ephemeral virtual environment.
 
 ## Installation
 
-You can install the development version of `sybil` from
-[GitHub](https://github.com/mattwarkentin/sybil) with:
+You can install the development version of `sybilr` from
+[GitHub](https://github.com/mattwarkentin/sybilr) with:
 
 ``` r
 # install.packages("pak")
-pak::pak("mattwarkentin/sybil")
+pak::pak("mattwarkentin/sybilr")
 ```
 
 ## Usage
@@ -38,7 +38,7 @@ pak::pak("mattwarkentin/sybil")
 Once installed, you can load the package with:
 
 ``` r
-library(sybil)
+library(sybilr)
 ```
 
 Next, we provide some convenience functions to simplify identifying the
@@ -100,7 +100,7 @@ If you use this package in your work, please cite the Sybil paper:
 
 ## Code of Conduct
 
-Please note that the sybil project is released with a [Contributor Code
+Please note that the sybilr project is released with a [Contributor Code
 of
 Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
