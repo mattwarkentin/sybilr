@@ -18,15 +18,73 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/mattwarkentin/sybil/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mattwarkentin/sybil/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of `sybil` is to provide an R interface to the Sybil lung cancer risk prediction model.
+The goal of `sybil` is to provide an R interface to the Sybil lung cancer risk prediction model. Sybil is a deep learning model to predict future risk of lung cancer using low-dose computed tomography (LDCT) images. The publication for Sybil can be found [here](https://ascopubs.org/doi/10.1200/JCO.22.01345). This package is a wrapper around the Python implementation of [Sybil](https://github.com/reginabarzilaygroup/Sybil). 
+
+This package is make possible by [`reticulate`](https://rstudio.github.io/reticulate/index.html), which simplifies the installation and management of Python dependencies for R users. Under the hood, `reticulate` uses [`uv`](https://docs.astral.sh/uv/) to rapidly install all required Python dependencies into an ephemeral virtual environment.
 
 ## Installation
 
-You can install the development version of `sybil` from [GitHub](https://github.com/) with:
+You can install the development version of `sybil` from [GitHub](https://github.com/mattwarkentin/sybil) with:
 
 ``` r
 # install.packages("pak")
 pak::pak("mattwarkentin/sybil")
+```
+
+## Usage
+
+Once installed, you can load the package with:
+
+```r
+library(sybil)
+```
+
+Next, we provide some convenience functions to simplify identifying the set of
+DICOM images that form a specific series that you want to estimate the time-dependent lung cancer risk. For example:
+
+```r
+series_ids <- find_series_in_dir("/path/to/images")
+dicoms <- find_dicoms_in_series("/path/to/images", series_ids[[1]])
+```
+
+Next, you can load a Series:
+
+```r
+series <- Series(dicoms)
+```
+
+See `?Series` for more information on other arguments that can be passed to `Series()`.
+
+Next, you can load a Sybil model using `Sybil()`. If this is your first time calling this function, it will need to download the weights for the Sybil model and may take some time. Subsequent calls to `Sybil()` will be considerably faster due to caching of the weights.
+
+```r
+# Default uses "sybil_ensemble"
+model <- Sybil()
+```
+
+See `?Sybil` for more information.
+
+Finally, you can predict lung cancer risk for the series:
+
+```r
+result <- predict(model, series)
+result
+```
+
+In the above code, `result` is an [`S7`](https://rconsortium.github.io/S7/) object with two properties, `@scores` and `@attentions`. `@scores` is a list of predictions for each series. `@attentions` will either be an empty list, if `return_attentions = FALSE`, or a list of attention maps for each series.
+
+## Citation
+
+If you use this package in your work, please cite the Sybil paper:
+
+@article{mikhael2023sybil,
+  title={Sybil: a validated deep learning model to predict future lung cancer risk from a single low-dose chest computed tomography},
+  author={Mikhael, Peter G and Wohlwend, Jeremy and Yala, Adam and Karstens, Ludvig and Xiang, Justin and Takigami, Angelo K and Bourgouin, Patrick P and Chan, PuiYee and Mrah, Sofiane and Amayri, Wael and Juan, Yu-Hsiang and Yang, Cheng-Ta and Wan, Yung-Liang and Lin, Gigin and Sequist, Lecia V and Fintelmann, Florian J. and Barzilay, Regina},
+  journal={Journal of Clinical Oncology},
+  pages={JCO--22},
+  year={2023},
+  publisher={Wolters Kluwer Health}
+}
 ```
 
 ## Code of Conduct
